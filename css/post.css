@@ -3,7 +3,7 @@
   --waline-active-color: #ff4848;
 }
 post a {
-  color: #d14e4e;
+  color: #434170;
 }
 .post_title {
   font: bold 2.3rem 'Noto Sans SC', sans-serif;
@@ -15,7 +15,7 @@ post a {
   margin: 0.2em auto 0;
   width: 100px;
   height: 2px;
-  border-bottom: 2px dashed #d14e4e;
+  border-bottom: 2px dashed #434170;
 }
 #post_content {
   font-size: 1.2rem;

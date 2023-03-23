@@ -114,7 +114,7 @@ p {
 }
 a {
   text-decoration: none;
-  color: #d14e4e;
+  color: #434170;
 }
 a:hover {
   color: #ff4848;
@@ -123,7 +123,7 @@ blockquote {
   margin: 0.3em 0;
   padding: 1rem;
   font-size: 0.85em;
-  border-left: 0.6em #d14e4e solid;
+  border-left: 0.6em #434170 solid;
   background-color: #f6f0f0;
   color: #4f4f48;
 }
