@@ -7,7 +7,7 @@
 #site_title {
   margin: 0 0 0.8em 0;
   font: bold 2em sans-serif;
-  color: #d14e4e;
+  color: #434170;
 }
 #site_title::before {
   content: '< ';
@@ -26,7 +26,7 @@ foot {
 }
 foot a {
   font-size: 1em;
-  color: #d14e4e;
+  color: #434170;
 }
 .boldline {
   border: none;
@@ -60,7 +60,7 @@ svg.icon:hover {
   font-size: 2.2em;
 }
 .index_list #index_post_title:hover {
-  color: #d14e4e;
+  color: #434170;
 }
 .index_list .blank {
   margin: 1em auto;

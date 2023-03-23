@@ -64,9 +64,9 @@
     
     
     
-    <category term="javascript" scheme="http://example.com/tags/javascript/"/>
-    
     <category term="爬虫" scheme="http://example.com/tags/%E7%88%AC%E8%99%AB/"/>
+    
+    <category term="javascript" scheme="http://example.com/tags/javascript/"/>
     
   </entry>
   
@@ -91,9 +91,9 @@
     
     
     
-    <category term="web" scheme="http://example.com/tags/web/"/>
-    
     <category term="javascript" scheme="http://example.com/tags/javascript/"/>
+    
+    <category term="web" scheme="http://example.com/tags/web/"/>
     
   </entry>
   
