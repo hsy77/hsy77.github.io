@@ -8,7 +8,7 @@
       <link href="/2023/03/23/linux%E5%91%BD%E4%BB%A4%E8%A1%8C/"/>
       <url>/2023/03/23/linux%E5%91%BD%E4%BB%A4%E8%A1%8C/</url>
       
-        <content type="html"><![CDATA[<h2 id="linux命令行"><a href="#linux命令行" class="headerlink" title="linux命令行"></a>linux命令行</h2><h3 id="删除操作"><a href="#删除操作" class="headerlink" title="删除操作"></a>删除操作</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//查看rm命令的具体使用方法</span><br><span class="line">rm --help</span><br><span class="line">//删除文件夹</span><br><span class="line">rm -r </span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<h3 id="删除操作"><a href="#删除操作" class="headerlink" title="删除操作"></a>删除操作</h3><pre><code>//查看rm命令的具体使用方法rm --help//删除文件夹rm -r </code></pre>]]></content>
       
       
       
