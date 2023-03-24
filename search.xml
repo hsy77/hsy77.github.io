@@ -4,12 +4,43 @@
   
     
     <entry>
+      <title>观影记录</title>
+      <link href="/2023/03/24/%E8%A7%82%E5%BD%B1%E8%AE%B0%E5%BD%95/"/>
+      <url>/2023/03/24/%E8%A7%82%E5%BD%B1%E8%AE%B0%E5%BD%95/</url>
+      
+        <content type="html"><![CDATA[<p>本年度观影一览~</p><h3 id="流浪地球2"><a href="#流浪地球2" class="headerlink" title="流浪地球2"></a>流浪地球2</h3><p>date：23-01-29<br>剧情很流畅，讲述了两个大的危机，感觉很充实，特效也超级壮观。</p><h3 id="深海"><a href="#深海" class="headerlink" title="深海"></a>深海</h3><p>date：23-02-16<br>终于补上了春节档的电影深海，配乐好好听，视觉效果满分。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 电影 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> movie </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>linux命令行</title>
       <link href="/2023/03/23/linux%E5%91%BD%E4%BB%A4%E8%A1%8C/"/>
       <url>/2023/03/23/linux%E5%91%BD%E4%BB%A4%E8%A1%8C/</url>
       
-        <content type="html"><![CDATA[<h3 id="删除操作"><a href="#删除操作" class="headerlink" title="删除操作"></a>删除操作</h3><pre><code>//查看rm命令的具体使用方法rm --help//删除文件夹rm -r </code></pre>]]></content>
+        <content type="html"><![CDATA[<h3 id="删除操作"><a href="#删除操作" class="headerlink" title="删除操作"></a>删除操作</h3><pre><code>//查看rm命令的具体使用方法rm --help//删除文件夹rm -r </code></pre><p><img src="images/Linux-Symbol.jpg" alt="tupian"></p>]]></content>
       
+      
+      <categories>
+          
+          <category> 命令语句 </category>
+          
+      </categories>
       
       
         <tags>
@@ -32,6 +63,12 @@
         <content type="html"><![CDATA[<h2 id="题目要求："><a href="#题目要求：" class="headerlink" title="题目要求："></a>题目要求：</h2><p>新闻爬虫及爬取结果的查询网站<br>核心需求:<br>1、选取3-5个代表性的新闻网站 (比如新浪新闻、网易新闻等，或者某个垂直领域权威性的网站比如经济领域的雪球财经、东方财富等，或者体育领域的腾讯体育、虎扑体育等等)建立爬虫，针对不同网站的新闻页面进行分析，爬取出编码、标题、作者、时间、关键词、摘要、内容、来源等结构化信息，存储在数据库中<br>2、建立网站提供对爬取内容的分项全文搜索，给出所查关键词的时间热度分析。</p><h2 id="项目完成步骤"><a href="#项目完成步骤" class="headerlink" title="项目完成步骤"></a>项目完成步骤</h2><p>使用Node.js和模板库Cheerio，request做一个爬虫代码，爬取<a href="https://news.sina.com.cn/china/">新浪新闻</a>，<a href="https://news.163.com/domestic/">网易新闻</a>，<a href="http://www.chinanews.com/">中国新闻网</a>中的各个部分。<br>下面以新浪新闻为例，分析页面：</p><h3 id="1-新闻页面分析"><a href="#1-新闻页面分析" class="headerlink" title="1. 新闻页面分析"></a>1. 新闻页面分析</h3><h4 id="1-1-对某一篇新闻页面元素进行分析："><a href="#1-1-对某一篇新闻页面元素进行分析：" class="headerlink" title="1.1 对某一篇新闻页面元素进行分析："></a>1.1 对<a href="https://news.sina.com.cn/c/2021-04-22/doc-ikmxzfmk8332048.shtml">某一篇新闻页面</a>元素进行分析：</h4><ul><li><p>标题  <code>main-title</code></p></li><li><p>作者 <code>show_author</code></p></li><li><p>时间 <code>date</code></p></li><li><p>关键字：正则化匹配：<code>$(&#39;meta[name=\&quot;keywords\&quot;]&#39;).eq(0).attr(\&quot;content\&quot;)&quot;    </code></p></li><li><p>内容 <code>article</code></p></li><li><p>来源 <code>source</code></p><h4 id="1-2-对新闻网页的URL进行分析"><a href="#1-2-对新闻网页的URL进行分析" class="headerlink" title="1.2 对新闻网页的URL进行分析"></a>1.2 对新闻网页的URL进行分析</h4><pre><code>https://news.sina.com.cn/c/2021-04-23/doc-ikmxzfmk8553784.shtmlhttps://news.sina.com.cn/c/2021-04-23/doc-ikmyaawc1428218.shtmlhttps://news.sina.com.cn/o/2021-04-22/doc-ikmxzfmk8371786.shtml</code></pre><p>从上述三个网址可知，每个网页都是由</p></li><li><p><code>https://news.sina.com.cn</code> 网页链接</p></li><li><p><code>/o/</code> 一个字母</p></li><li><p><code>2021-04-22</code> 年月日，由四个数字-两个数字-两个数字组成</p></li><li><p><code>doc-ikmxzfmk8371786.shtml</code> doc-15个字符.shtml<br>因此可以写出匹配网页的正则化为：<code>/\/(\d&#123;4&#125;)-(\d&#123;2&#125;)-(\d&#123;2&#125;)\/doc-(\w&#123;15&#125;).shtml/</code></p></li></ul><h3 id="2-数据库设计和代码实现"><a href="#2-数据库设计和代码实现" class="headerlink" title="2. 数据库设计和代码实现"></a>2. 数据库设计和代码实现</h3><h5 id="2-1-设计数据库"><a href="#2-1-设计数据库" class="headerlink" title="2.1 设计数据库"></a>2.1 设计数据库</h5><ul><li>在mysql中创建数据库<code>crawlnews</code>，然后在该数据库里创建表<code>fetches</code>:</li><li>根据第1步分析的网页元素，设置fetches表的结构，url设置的属性为<code>UNIQUE</code>，因此插入数据之前需要判断是否已经爬取过相同的网页。<h5 id="2-2-数据库连接和查询代码"><a href="#2-2-数据库连接和查询代码" class="headerlink" title="2.2 数据库连接和查询代码"></a>2.2 数据库连接和查询代码</h5></li><li>在js爬虫代码中使用mysql，需要先引用mysql文件。<pre><code class="javascript">var mysql = require(&#39;./mysql.js&#39;);</code></pre></li><li>其中在<code>mysql.js</code>连接数据库，并且完成了带参数和不带参数的sql语句查询。（<em>password需要写自己mysql的密码</em>）</li></ul><h3 id="3-网页展示"><a href="#3-网页展示" class="headerlink" title="3. 网页展示"></a>3. 网页展示</h3><p>完成第4步后，又对网页进行了：</p><ol><li> 主页设计：实现了两个功能页面的跳转。</li><li>CSS设计：使得页面更加美观</li><li>导航栏设计：使得页面的跳转更加方便。<br>因此最终网页展示如下：</li></ol><ul><li><p><strong>主页</strong>(localhost:3000):</p><pre><code>             可以跳转至：              -   关键词查询网页（search.html)                   -   时间热度分析网页（wordhot.html)</code></pre></li><li><p><strong>关键词查询</strong>网页（search.html):<br>当输入想要查询的词后，可以以列表的形式显示查询结果：</p><ul><li>仅查询<code>title</code>：</li><li>查询<code>title</code>和<code>keywords</code>:</li><li>查询<code>title</code>，<code>content</code>和<code>keywords</code>:</li></ul></li><li><p>  <strong>时间热度分析</strong>网页（wordhot.html)</p></li></ul><p>输入想要查询的标题，会显示数据库中的新闻中包含该词的数量，并且按照日期绘制折线图。使得时间热度分析更加直观。</p><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul><li>在本次项目中，理解js代码是如何运行的，该怎么设计一个网站的框架，如何使用代码对网页和服务器进行通信，是比较重要也是我比较薄弱的方面。</li><li>实践了使用js进行爬虫和构建网页，学习到了前后端如何通过request和response进行交互，怎么在网页中插入图表，对网页设置CSS，完成了作业的要求。</li><li>但因为对js和html代码仍然不太熟悉，因此没有完成分页功能，希望在之后对代码进行改进和优化。</li><li>通过本次项目发现，只有真实的完成过任务，才能真正掌握一门语言。希望之后也能主动使用js。</li></ul>]]></content>
       
       
+      <categories>
+          
+          <category> 网页爬虫 </category>
+          
+      </categories>
+      
       
         <tags>
             
@@ -53,6 +90,12 @@
         <content type="html"><![CDATA[<h2 id="一-项目要求"><a href="#一-项目要求" class="headerlink" title="一 项目要求"></a>一 项目要求</h2><p>基于第一个项目爬虫爬取的数据，完成数据展示网站。<br>基本要求:<br>1、用户可注册登录网站，非注册用户不可登录查看数据<br>2、用户注册、登录、查询等操作记入数据库中的日志<br>3、爬虫数据查询结果列表支持分页和排序<br>4、用Echarts或者D3实现3个以上的数据分析图表展示在网站中<br>5、实现一个管理端界面，可以查看 (查看用户的操作记录)和管理 (停用启用) 注册用户</p><h2 id="二-项目实现"><a href="#二-项目实现" class="headerlink" title="二 项目实现"></a>二 项目实现</h2><p>该项目使用了以下模块：</p><blockquote><p><strong>express-session</strong>：是express中的一个处理session的中间件。有以下特点：session管理(基本功能),cookie签名,可替换持久储存模块。</p></blockquote><p>在<code>app.js</code>中，设置session的各个参数。</p><blockquote><p><strong>morgan</strong>：express默认的日志中间件。</p></blockquote><blockquote><p><strong>angularJS</strong>：是一个 JavaScript 框架。它可通过&lt;script&gt; 标签添加到 HTML 页面。AngularJS通过指令扩展了HTML，并且通过表达式绑定数据到 HTML。</p></blockquote><p><code>ng-app</code>指令指明了应用, <code>ng-controller</code> 指明了控制器。</p><p>根据项目要求，分别介绍基本要求中的五个功能。</p><h3 id="1-用户注册-非注册"><a href="#1-用户注册-非注册" class="headerlink" title="1. 用户注册/非注册"></a>1. 用户注册/非注册</h3><p>要实现用户注册的功能，首先需要创建一个保存用户信息的<code>user</code>表，然后实现当用户注册时存入<code>user</code>，没有注册的用户不能访问网页。</p><h4 id="1-1-构建user表"><a href="#1-1-构建user表" class="headerlink" title="1.1 构建user表"></a>1.1 构建user表</h4><p>其中的cond列存储该账号的状态，stop：账号禁用，start：账号启用。</p><pre><code class="sql">--创建用户信息数据表CREATE TABLE `crawl`.`user` (  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,  `username` VARCHAR(45) NOT NULL,  `password` VARCHAR(45) NOT NULL,  `registertime` datetime DEFAULT CURRENT_TIMESTAMP,  `cond` VARCHAR(45) NOT NULL,  PRIMARY KEY (`id`),  UNIQUE KEY `username_UNIQUE` (`username`))ENGINE=InnoDB DEFAULT CHARSET=utf8;</code></pre><h4 id="1-2-实现login，register，logout代码"><a href="#1-2-实现login，register，logout代码" class="headerlink" title="1.2 实现login，register，logout代码"></a>1.2 实现login，register，logout代码</h4><ul><li><p><strong>login</strong>：登录时调用该函数，访问<code>/users/login</code>路径，判断该用户是否存在，用户和密码是否匹配，该用户是否没被禁用；如果都满足，则返回<code>ok</code>，将用户信息存入session和cookie中，跳转到<code>news.html</code>页面。</p></li><li><p><strong>register</strong>：注册时调用该函数，访问<code>/users/register</code>路径，判断该用户是否已经存在，不存在就添加到user表中并返回<code>ok</code>，跳转到<code>index.html</code>界面。</p></li><li><p><strong>logout</strong>：登出时调用该函数，访问<code>/users/logout</code>路径，删除掉session和cookie中存储的用户信息，并跳转到<code>index.html</code>界面。</p></li></ul><h4 id="1-3-实现非注册用户无法访问"><a href="#1-3-实现非注册用户无法访问" class="headerlink" title="1.3 实现非注册用户无法访问"></a>1.3 实现非注册用户无法访问</h4><p>在进入news.html页面后，每一个操作都需要首先判断<code>request.session[&#39;username&#39;]</code>是否等于<code>undefined</code>，即判断当前是否有用户登录，只有登录之后才能进行相应的操作，否则只能跳转到登录界面<code>index.html</code>.</p><h3 id="2-用户操作记入日志"><a href="#2-用户操作记入日志" class="headerlink" title="2. 用户操作记入日志"></a>2. 用户操作记入日志</h3><h4 id="2-1-构建user-action表"><a href="#2-1-构建user-action表" class="headerlink" title="2.1 构建user_action表"></a>2.1 构建user_action表</h4><p>存入用户的用户名，请求时间，方式，网址和状态码。</p><pre><code class="sql">--记录用户的登陆，查询（具体查询语句）操作CREATE TABLE `crawl`.`user_action` (  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,  `username` VARCHAR(45) NOT NULL,  `request_time` VARCHAR(45) NOT NULL,  `request_method` VARCHAR(20) NOT NULL,  `request_url` VARCHAR(300) NOT NULL,  `status` int(4),  `remote_addr` VARCHAR(100) NOT NULL,    PRIMARY KEY (`id`))ENGINE=InnoDB DEFAULT CHARSET=utf8;</code></pre><h4 id="2-2-实现请求存入表"><a href="#2-2-实现请求存入表" class="headerlink" title="2.2 实现请求存入表"></a>2.2 实现请求存入表</h4><p>引入<code>morgan</code>，借助中间件保存的信息。将每一次请求的信息通过函数解析得到相关的数据，调用<code>logDAO</code>中的<code>userlog</code>插入<code>user_action</code>表中。并在terminal中输出相关的信息。</p><h2 id="三-项目总结"><a href="#三-项目总结" class="headerlink" title="三 项目总结"></a>三 项目总结</h2><p>通过完成web编程期末项目，更加熟悉javascript的实现逻辑，了解了AngularJS这个JavaScript 框架。但在该项目中还没有实现修改数据库的值后及时显示在页面上，希望之后能加以改进。而对于如何实现一个从前端-后端-数据库的项目有了一定的经验。当想要实现某个功能时：</p><ol><li>首先需要考虑这个功能需要从网页中获取数据吗？如果需要，则应该在html中设计相应的组件，点击按钮会发生怎样的变化。</li><li>如果这个变化需要后端的参与，则应该设计相应的函数处理该请求。</li><li>而且后端也分为了处理代码和路由代码：<ul><li>路由函数处理request请求，可以获取传过来的参数，使用这些参数可以访问数据库，并将结果写入response。</li><li>处理函数可以响应前端的调用，构造url调用路由函数，得到返回结果可以进行相应的处理，比如：返回新页面，显示某页面，返回echarts图表，将返回数据写入到前端页面中。</li></ul></li></ol>]]></content>
       
       
+      <categories>
+          
+          <category> 网站构建 </category>
+          
+      </categories>
+      
       
         <tags>
             
@@ -71,8 +114,14 @@
       <link href="/2023/03/22/hello-world/"/>
       <url>/2023/03/22/hello-world/</url>
       
-        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;</code></pre><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server</code></pre><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate</code></pre><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy</code></pre><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
       
+      
+      <categories>
+          
+          <category> 网站生成 </category>
+          
+      </categories>
       
       
         <tags>
